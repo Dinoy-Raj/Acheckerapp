@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 import 'user_model.dart';
 
@@ -54,48 +55,47 @@ class _displayState extends State<display> {
         margin: EdgeInsets.all(1),
         //height: 200.0,
         width: 600,
-        child: _user==null? Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(child: Text("Error In Getting Data",
-            style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.green.withOpacity(.8)
+        child: _user==null? ListView(
+          children: [Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+
+          SizedBox(height: 100,),
+
+        Lottie.asset("assets/38463-error.json",
+          fit: BoxFit.fill,),
+          Container(
+            height: 100,
+            width: 300,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.rectangle,
+              gradient: LinearGradient(
+                colors: [
+                  Colors.white,
+                  Colors.white70,
+                  Colors.white,
+                  //Colors.red
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              borderRadius: BorderRadius.circular(20),
             ),
-            )
+
+            child: Center(
+              child: Text("Invalid Username Or Password",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20
+              ),),
             ),
-        SizedBox(height: 30,),
-        Container(
-          height: 100,
-          width: 300,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            shape: BoxShape.rectangle,
-            gradient: LinearGradient(
-              colors: [
-                Colors.white,
-                Colors.white70,
-                Colors.white,
-                //Colors.red
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-            borderRadius: BorderRadius.circular(20),
           ),
 
-          child: Center(
-            child: Text("Invalid Username Or Password",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20
-            ),),
+            ],
           ),
-        ),
-
-          ],
+        ]
         ):ListView.builder(
             padding: EdgeInsets.all(8),
             itemCount: _user.length,
@@ -448,12 +448,21 @@ class _displayState extends State<display> {
                                       borderRadius: BorderRadius.circular(20),
                                     ),
                                     child: Center(
-                                      child: Text(
+                                      child: _user[index].canBunk==false?
+                                      Text(
+                                        "0",
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.red,
+                                            fontSize: 15,
+                                            letterSpacing: 1),
+                                      ):Text(
                                         "${_user[index].days}",
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.black54,
+                                            color: Colors.green,
                                             fontSize: 15,
                                             letterSpacing: 1),
                                       ),

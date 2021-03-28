@@ -192,32 +192,21 @@ class _MyHomePageState extends State<MyHomePage> {
                             primary: Colors.green.withOpacity(.8),
                           ),
                           onPressed: () async {
+
                             final String username = usernameController.text;
                             final String password = passwordController.text;
                             final String percent = percentController.text;
-                            print(username);
 
-                            if (username == "") {
-                              //context:context;
-                              showBottomSheet(
-                                context: context,
-                                builder: (context) => Container(
-                                  height: 30,
-                                  width: MediaQuery.of(context).size.width,
-                                  color: Colors.green,
-                                ),
-                              );
-                            } else {
-                              final List<UserModel> user =
-                                  await createUser(username, password, percent);
-                              setState(() {
-                                recive(user);
-                              });
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => display()));
-                            }
+                            final List<UserModel> user =
+                                await createUser(username, password, percent);
+                            setState(() {
+                              recive(user);
+                            });
+
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => display()));
                           },
 
                           child: Text(
@@ -236,11 +225,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               )
-            ]
-            ),
+            ]),
           ],
-        )
-    );
+        ));
   }
 
   Widget bsusername() {
@@ -255,6 +242,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-
-
 }
