@@ -54,7 +54,49 @@ class _displayState extends State<display> {
         margin: EdgeInsets.all(1),
         //height: 200.0,
         width: 600,
-        child: ListView.builder(
+        child: _user==null? Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(child: Text("Error In Getting Data",
+            style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.green.withOpacity(.8)
+            ),
+            )
+            ),
+        SizedBox(height: 30,),
+        Container(
+          height: 100,
+          width: 300,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            shape: BoxShape.rectangle,
+            gradient: LinearGradient(
+              colors: [
+                Colors.white,
+                Colors.white70,
+                Colors.white,
+                //Colors.red
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            borderRadius: BorderRadius.circular(20),
+          ),
+
+          child: Center(
+            child: Text("Invalid Username Or Password",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20
+            ),),
+          ),
+        ),
+
+          ],
+        ):ListView.builder(
             padding: EdgeInsets.all(8),
             itemCount: _user.length,
             itemBuilder: (BuildContext context, int index) {

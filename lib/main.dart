@@ -201,7 +201,11 @@ class _MyHomePageState extends State<MyHomePage> {
                               //context:context;
                               showBottomSheet(
                                 context: context,
-                                builder: ((builder) => bsusername()),
+                                builder: (context) => Container(
+                                  height: 30,
+                                  width: MediaQuery.of(context).size.width,
+                                  color: Colors.green,
+                                ),
                               );
                             } else {
                               final List<UserModel> user =
@@ -232,9 +236,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               )
-            ]),
+            ]
+            ),
           ],
-        ));
+        )
+    );
   }
 
   Widget bsusername() {
@@ -249,4 +255,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+
+
 }
