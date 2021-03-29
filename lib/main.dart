@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:http/http.dart' as http;
 import 'package:httpr/display.dart';
 import 'user_model.dart';
 import 'package:flutter/cupertino.dart';
+import 'loading.dart';
 
 void main() {
   runApp(MyApp());
@@ -33,10 +35,13 @@ Future<List<UserModel>> createUser(
     String username, String password, String percent) async {
   final String apiUrl = "https://anonymousgbuapi.herokuapp.com/";
 
+
   final response = await http.post(apiUrl,
       body: {"username": username, "password": password, "percent": percent});
 
   if (response.statusCode == 200) {
+
+
     final String responseString = response.body;
 
     return userModelFromJson(responseString);
@@ -49,6 +54,10 @@ class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController percentController = TextEditingController();
+
+  bool loadinga = false;
+String _chosenValue ;
+
 
   @override
   Widget build(BuildContext context) {
@@ -166,28 +175,95 @@ class _MyHomePageState extends State<MyHomePage> {
                                 borderSide: BorderSide(color: Colors.green))),
                       ),
                       SizedBox(
-                        height: 20.0,
+                        height: 30.0,
                       ),
-                      TextField(
-                        controller: percentController,
-                        decoration: InputDecoration(
-                            labelText: "Percentage",
-                            labelStyle: TextStyle(
-                              height: 1,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.grey,
+
+                      Container(
+                        width: 500,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.rectangle,
+                            gradient: LinearGradient(
+                              colors: [
+                                Colors.white,
+                                Colors.white70,
+                                Colors.white,
+                                //Colors.red
+                              ],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
                             ),
-                            focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.green))),
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(.1),
+                                spreadRadius: 1,
+                                blurRadius: 15,
+                                offset: Offset(0, 5),
+                              )
+                            ]),
+
+                        child: Padding(
+                          padding: const EdgeInsets.all(1.0),
+                          child: Center(
+                            child: DropdownButton<String>(
+                              //itemHeight: 10,
+
+                              focusColor:Colors.green,
+                              value: _chosenValue,
+
+                              onChanged: (String value) {
+                                setState(() {
+                                  _chosenValue = value;
+                                });
+                              },
+                              //elevation: 5,
+                              style: TextStyle(color: Colors.white),
+                              iconEnabledColor:Colors.black,
+                              items: <String>[
+                                '95',
+                                '90',
+                                '85',
+                                '80',
+                              ].map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value,style:TextStyle(color:Colors.black),),
+                                );
+                              }).toList(),
+
+
+                              hint:Text(
+                                "Percentage",
+                                style: TextStyle(
+                                    color: Colors.black.withOpacity(.5),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500),
+                              ),
+
+                            ),
+                          ),
+                        ),
                       ),
+
+
+
+
                       Container(
                         alignment: Alignment(1, 0),
                         padding: EdgeInsets.only(top: 10.0, left: 230.0),
                       ),
-                      SizedBox(height: 60.0),
+                      SizedBox(height: 40.0),
                       Container(
                         height: 45.0,
-                        child: ElevatedButton(
+                        child: loadinga?   Container(
+                                    child: Center(
+                                       child: SpinKitWave(
+                                            color: Colors.green,
+                                             size: 50,
+                                                 ),
+                                            ),
+                                   ):ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             primary: Colors.green.withOpacity(.8),
                           ),
@@ -195,19 +271,26 @@ class _MyHomePageState extends State<MyHomePage> {
 
                             final String username = usernameController.text;
                             final String password = passwordController.text;
-                            final String percent = percentController.text;
+                            final String percent = _chosenValue;
 
+                            setState(()=>loadinga=true);
                             final List<UserModel> user =
                                 await createUser(username, password, percent);
                             setState(() {
                               recive(user);
+                              //loadinga=true;
                             });
+
+
+                            setState(()=>loadinga=false);
 
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => display()));
+
                           },
+
 
                           child: Text(
                             "    Check    ",
