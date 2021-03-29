@@ -1,4 +1,4 @@
-# ![Alt text](https://github.com/Dinoy-Raj/anonymousapp/blob/main/assets/ffg.png) Achecker
+# ![Alt text](https://github.com/Dinoy-Raj/anonymousapp/blob/main/assets/xx.png) Achecker
 
 A new Flutter application To Check Attendance For Students Of Tkmce 
 
@@ -15,6 +15,17 @@ Percentage :- Percentage Of Attendance Based On Which Class Can Be Bunked To Be 
 
 
 ### Android App Link 
+
+
+### ScreenShots Of App UI
+
+
+![Alt text](https://github.com/Dinoy-Raj/anonymousapp/blob/main/assets/2.png)
+
+![Alt text](https://github.com/Dinoy-Raj/anonymousapp/blob/main/assets/1.png)
+
+
+
 
 
 
