@@ -1,6 +1,29 @@
-# httpr
+# Achecker
 
-A new Flutter application.
+A new Flutter application To Check Attendance For Students Of Tkmce 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Getting Started
 
