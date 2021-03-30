@@ -4,6 +4,9 @@ A new Flutter application To Check Attendance For Students Of Tkmce
 
 
 
+---
+
+
 
 ## Login Details
 
@@ -17,10 +20,16 @@ Percentage :- Percentage Of Attendance Based On Which Class Can Be Bunked To Be 
 ### Android App Link 
 
 
+
+---
+
+
 ### ScreenShots Of App UI
 
 
 ![Alt text](https://github.com/Dinoy-Raj/anonymousapp/blob/main/assets/fd.png)    
+
+---
 
 
 
@@ -35,6 +44,14 @@ Percentage :- Percentage Of Attendance Based On Which Class Can Be Bunked To Be 
 
 
 
+
+---
+
+
+
+## API
+
+The **[API](https://anonymousgbuapi.herokuapp.com/)** we used
 
 
 
