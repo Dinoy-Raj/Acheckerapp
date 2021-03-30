@@ -51,16 +51,17 @@ Percentage :- Percentage Of Attendance Based On Which Class Can Be Bunked To Be 
 
 
 
-## API
+### API
 
 ---
+
 
 The **[API](https://anonymousgbuapi.herokuapp.com/)** we used
 
 
 
 
-## Contributors
+### Contributors
 
 ---
 
@@ -82,7 +83,7 @@ The **[API](https://anonymousgbuapi.herokuapp.com/)** we used
 
 
 
-## License & copyright
+### License & copyright
 ---
 
 © Dinoy Raj K
