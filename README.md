@@ -20,7 +20,15 @@ Percentage :- Percentage Of Attendance Based On Which Class Can Be Bunked To Be 
 ### ScreenShots Of App UI
 
 
-![Alt text](https://github.com/Dinoy-Raj/anonymousapp/blob/main/assets/fd.png)                             
+![Alt text](https://github.com/Dinoy-Raj/anonymousapp/blob/main/assets/fd.png)    
+
+
+
+### Web And App UI
+
+
+
+![Alt text](https://github.com/Dinoy-Raj/anonymousapp/blob/main/assets/gf.png) 
 
 
 
