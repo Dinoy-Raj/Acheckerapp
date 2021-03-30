@@ -23,6 +23,12 @@ Percentage :- Percentage Of Attendance Based On Which Class Can Be Bunked To Be 
 
 ---
 
+Get Achecker from the Amazon Appstore. Check it out - https://www.amazon.com/dp/B091B87HYC/ref=apps_sf_sta
+
+Amazon (https://www.amazon.com/dp/B091B87HYC/ref=apps_sf_sta)
+Amazon.com: Achecker: Appstore for Android
+Buy Achecker: Read Apps & Games Reviews - Amazon.com
+
 
 ### ScreenShots Of App UI
 
