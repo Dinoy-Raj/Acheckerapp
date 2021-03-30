@@ -62,6 +62,8 @@ The **[API](https://anonymousgbuapi.herokuapp.com/)** we used
 
 ## Contributors
 
+---
+
 
 <table>
   <tr>
