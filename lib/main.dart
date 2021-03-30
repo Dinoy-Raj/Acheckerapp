@@ -273,21 +273,27 @@ String _chosenValue ;
                             final String password = passwordController.text;
                             final String percent = _chosenValue;
 
-                            setState(()=>loadinga=true);
-                            final List<UserModel> user =
-                                await createUser(username, password, percent);
-                            setState(() {
-                              recive(user);
-                              //loadinga=true;
-                            });
+                            if (percent==null)
+                              {
+                                 
+                              }
+                            else {
+                              setState(() => loadinga = true);
+                              final List<UserModel> user =
+                              await createUser(username, password, percent);
+                              setState(() {
+                                recive(user);
+                                //loadinga=true;
+                              });
 
 
-                            setState(()=>loadinga=false);
+                              setState(() => loadinga = false);
 
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => display()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => display()));
+                            }
 
                           },
 
