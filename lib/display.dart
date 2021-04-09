@@ -55,47 +55,50 @@ class _displayState extends State<display> {
         margin: EdgeInsets.all(1),
         //height: 200.0,
         width: 600,
-        child: _user==null? ListView(
-          children: [Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+        child: _user==null? Center(
+          child: ListView(
 
-          SizedBox(height: 100,),
+            children: [Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
 
-        Lottie.asset("assets/38463-error.json",
-          fit: BoxFit.fill,),
-          Container(
-            height: 100,
-            width: 300,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.rectangle,
-              gradient: LinearGradient(
-                colors: [
-                  Colors.white,
-                  Colors.white70,
-                  Colors.white,
-                  //Colors.red
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+            SizedBox(height: 100,),
+
+          Lottie.asset("assets/38463-error.json",
+            fit: BoxFit.fill,),
+            Container(
+              height: 100,
+              width: 300,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.rectangle,
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.white,
+                    Colors.white70,
+                    Colors.white,
+                    //Colors.red
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.circular(20),
               ),
-              borderRadius: BorderRadius.circular(20),
+
+              child: Center(
+                child: Text("Invalid Username Or Password",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20
+                ),),
+              ),
             ),
 
-            child: Center(
-              child: Text("Invalid Username Or Password",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20
-              ),),
+              ],
             ),
+          ]
           ),
-
-            ],
-          ),
-        ]
         ):ListView.builder(
             padding: EdgeInsets.all(8),
             itemCount: _user.length,
@@ -138,7 +141,7 @@ class _displayState extends State<display> {
                       child: Padding(
                         padding: const EdgeInsets.only(left: 14, top: 20),
                         child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Row(
                                 children: [

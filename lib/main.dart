@@ -275,7 +275,7 @@ String _chosenValue ;
 
                             if (percent==null)
                               {
-                                 
+
                               }
                             else {
                               setState(() => loadinga = true);
